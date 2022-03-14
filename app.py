@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import datetime
-
+import codepython
 
 app = Flask(__name__)
 
@@ -15,8 +15,11 @@ def index():
 @app.route('/result',methods = ['POST'])
 def resultat():
   result = request.form
-  n = result['nom']
-  p = result['prenom']
-  return render_template("result.html", nom=n, prenom=p)
+  id = result['id']
+  pwd = result['password']
+  if codepython.identification(id, pwd):
+    return render_template("result.html", nom=id, prenom=pwd)
+  else:
+    return "Pas moyen"
 
 app.run(debug=True)
