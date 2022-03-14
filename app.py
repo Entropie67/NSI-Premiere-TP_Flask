@@ -20,6 +20,6 @@ def resultat():
   if codepython.identification(id, pwd):
     return render_template("result.html", nom=id, prenom=pwd)
   else:
-    return "Pas moyen"
+    return f"<p>Pas moyen,d'ou tu imagines que c'est {id}</p>"
 
 app.run(debug=True)
