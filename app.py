@@ -18,7 +18,7 @@ def resultat():
   id = result['id']
   pwd = result['password']
   if codepython.identification(id, pwd):
-    return render_template("result.html", nom=id, prenom=pwd)
+    return render_template("result.html", nom=id, pwd=pwd)
   else:
     return f"<p>Pas moyen,d'ou tu imagines que c'est {id}</p>"
 
