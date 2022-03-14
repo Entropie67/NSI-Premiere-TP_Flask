@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import datetime
+
 
 app = Flask(__name__)
 
@@ -11,11 +12,11 @@ def index():
   s = date.second
   return render_template("index.html", heure=h, minute=m, seconde=s)
 
-@app.route('/resultat',methods = ['POST'])
+@app.route('/result',methods = ['POST'])
 def resultat():
   result = request.form
   n = result['nom']
   p = result['prenom']
-  return render_template("resultat.html", nom=n, prenom=p)
+  return render_template("result.html", nom=n, prenom=p)
 
 app.run(debug=True)
